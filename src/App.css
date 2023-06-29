@@ -1,0 +1,7 @@
+html {
+  @apply bg-[#E5E786] font-sans antialiased overflow-x-hidden;
+}
+
+.text-vertical {
+  writing-mode: vertical-lr;
+}
