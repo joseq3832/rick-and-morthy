@@ -5,7 +5,6 @@ import { CHARACTER_TYPES } from '../types';
 import ApiService from '@/services/ApiService';
 
 function* getCharacters(action) {
-  console.log(action.payload);
   try {
     const { data } = yield call(ApiService.get, action.payload);
     yield put(setCharacters(data.results));
