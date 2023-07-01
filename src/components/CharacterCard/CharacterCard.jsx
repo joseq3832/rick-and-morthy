@@ -31,7 +31,7 @@ export const CharacterCard = ({ character }) => {
           </span>
         </div>
         <div className="flex justify-end">
-          <Link to={'/character/' + character.id}>
+          <Link to={'/character/' + character.slug}>
             <Button
               className="flex items-center gap-1.5 hover:bg-rick-primary transition-all ease-in-out"
               type="secondary">
@@ -49,6 +49,7 @@ CharacterCard.propTypes = {
   character: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,

@@ -8,7 +8,7 @@ export const Navigation = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="/character/:id" element={<Character />} />
+          <Route path="/character/:slug" element={<Character />} />
         </Route>
       </Routes>
     </BrowserRouter>

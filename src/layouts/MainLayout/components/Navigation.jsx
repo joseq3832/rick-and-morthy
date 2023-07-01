@@ -1,11 +1,19 @@
+import { Link, useLocation } from 'react-router-dom';
+import { classNames } from '@/core/utils';
 import { Logo } from '@/components';
-import { Link } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaInstagram } from 'react-icons/fa6';
 import { CgMenuRightAlt } from 'react-icons/cg';
 
 export const Navigation = () => {
+  const location = useLocation();
+  const isRoot = location.pathname === '/';
+
   return (
-    <header className="w-screen py-16 px-6 sm:px-4 md:px-2 bg-black">
+    <header
+      className={classNames(
+        'w-screen py-16 px-6 sm:px-4 md:px-2',
+        isRoot ? 'bg-black' : 'bg-rick-black-200'
+      )}>
       <div className="mx-auto max-w-7xl flex items-center justify-between">
         <Link to="/">
           <Logo />

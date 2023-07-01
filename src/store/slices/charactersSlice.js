@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   characters: [],
+  selectedCharacter: {},
   isLoading: false,
   isError: false,
   page: 1,
@@ -26,6 +27,9 @@ export const charactersSlice = createSlice({
       state.isError = true;
       state.isLoading = false;
     },
+    setSelectedCharacter: (state, action) => {
+      state.selectedCharacter = action.payload;
+    },
     setPage: (state, action) => {
       state.page = action.payload;
     },
@@ -41,6 +45,7 @@ export const {
   setCharacters,
   setErrorCharacters,
   getCharactersFetch,
+  setSelectedCharacter,
   setPage,
   setTotalPages,
   resetState
