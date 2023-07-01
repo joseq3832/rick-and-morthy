@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { GenderTag } from '@/components';
 import { BsArrowRight } from 'react-icons/bs';
 
@@ -43,9 +44,28 @@ export const CharacterCard = ({ character }) => {
           to={'/character/' + character.id}
           className="flex items-center justify-center relative group">
           <BsArrowRight className="h-5 -right-0 w-auto opacity-70 hidden group-hover:block absolute transition-all ease-in-out duration-500" />
-          <span className='group-hover:-translate-x-7 transition-all ease-in-out duration-300 group-hover:drop-shadow-lg group-hover:shadow-black'>Conoce más</span>
+          <span className="group-hover:-translate-x-7 transition-all ease-in-out duration-300 group-hover:drop-shadow-lg group-hover:shadow-black">
+            Conoce más
+          </span>
         </Link>
       </div>
     </div>
   );
+};
+
+CharacterCard.propTypes = {
+  character: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    origin: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    location: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    episode: PropTypes.arrayOf(PropTypes.string).isRequired
+  }).isRequired
 };

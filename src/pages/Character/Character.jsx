@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
-import { GenderTag, RemoveBg } from '@/components';
+import { GenderTag } from '@/components';
 import ApiService from '@/services/ApiService';
 
 export const Character = () => {
