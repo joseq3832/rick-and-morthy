@@ -10,7 +10,7 @@ const saga = createSagaMiddleware();
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['characters']
+  whitelist: ['characters', 'locations']
 };
 
 const rootReducer = combineReducers(reducers);

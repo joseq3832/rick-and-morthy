@@ -1,10 +1,21 @@
-import { H1, H3, H4, Button, SearchInput, Characters } from '@/components';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCharactersFetch } from '@/store/slices';
+import { H1, H3, H4, Button, SearchInput, CharacterCard } from '@/components';
 import { BsMoon, BsSun, BsGrid } from 'react-icons/bs';
 import { BiPlanet } from 'react-icons/bi';
 import { HiOutlineFaceSmile } from 'react-icons/hi2';
 import { CgScreen } from 'react-icons/cg';
 
 export const Home = () => {
+  const dispatch = useDispatch();
+  const { characters } = useSelector((state) => state.characters);
+  const getCharacters = characters.slice(0, 8);
+
+  useEffect(() => {
+    if (characters.length === 0) dispatch(getCharactersFetch());
+  }, []);
+
   return (
     <>
       <header className="bg-black text-white">
@@ -61,7 +72,11 @@ export const Home = () => {
             Ver todos
           </Button>
         </div>
-        <Characters />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {getCharacters.map((character, index) => (
+            <CharacterCard character={character} key={index} />
+          ))}
+        </div>
       </section>
     </>
   );

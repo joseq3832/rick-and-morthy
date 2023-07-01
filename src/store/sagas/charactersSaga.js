@@ -1,5 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { setCharacters, setErrorCharacters, setLoading, setPage, setTotalPages } from '../slices';
+import {
+  setCharacters,
+  setErrorCharacters,
+  setLoading,
+  setPage,
+  setTotalPages
+} from '../slices/charactersSlice';
 import { CHARACTER_TYPES } from '../types';
 import { createAdapterCharacter } from '@/features/adapters';
 
@@ -7,7 +13,7 @@ import ApiService from '@/services/ApiService';
 
 function* getCharacters(action) {
   try {
-    const { data } = yield call(ApiService.get, action.payload);
+    const { data } = yield call(ApiService.getCharacters, action.payload);
     const characters = data.results.map((character) => createAdapterCharacter(character));
     yield put(setCharacters(characters));
     yield put(setPage(action.payload));
