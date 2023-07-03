@@ -7,6 +7,9 @@ const ApiService = {
   async getOneCharacter(id) {
     return await HttpClient.get(`character/${id}`);
   },
+  async getOneCharacterByIds(ids) {
+    return await HttpClient.get(`character/${ids}`);
+  },
   async getLocations(page) {
     return await HttpClient.get(`location?page=${page}`);
   },

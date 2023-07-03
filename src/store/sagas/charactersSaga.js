@@ -16,7 +16,9 @@ function* getCharacters(action) {
     const { data } = yield call(ApiService.getCharacters, action.payload);
     const characters = data.results.map((character) => createAdapterCharacter(character));
     yield put(setCharacters(characters));
-    yield put(setPage(action.payload));
+    if (action.payload) {
+      yield put(setPage(action.payload));
+    }
     yield put(setTotalPages(data.info.pages));
     yield put(setLoading(false));
   } catch (error) {
