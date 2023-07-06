@@ -11,7 +11,7 @@ export const Navigation = () => {
   return (
     <header
       className={classNames(
-        'w-screen py-16 px-6 sm:px-4 md:px-2',
+        'w-screen py-16 px-4 sm:px-4 lg:px-6',
         isRoot ? 'bg-black' : 'bg-rick-black-200'
       )}>
       <div className="mx-auto max-w-7xl flex items-center justify-between">

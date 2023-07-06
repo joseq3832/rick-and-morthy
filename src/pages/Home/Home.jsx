@@ -27,11 +27,11 @@ export const Home = () => {
   return (
     <>
       <header className="bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-2 grid grid-cols-1 md:grid-cols-2">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-4 grid grid-cols-1 md:grid-cols-2">
           <div>
             <div className="mb-16">
               <H1 className="mb-6">
-                Tódo en un <br /> solo <span className="text-rick-primary">Lugar.</span>
+                Todo en un <br /> solo <span className="text-rick-primary">Lugar.</span>
               </H1>
               <H4>Personajes, lugares, episodios y mucho más.</H4>
             </div>

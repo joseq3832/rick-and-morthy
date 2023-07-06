@@ -1,7 +1,37 @@
 html {
-  @apply font-sans antialiased overflow-x-hidden;
+  @apply font-sans antialiased overflow-x-hidden bg-rick-black-200;
 }
 
 .text-vertical {
   writing-mode: vertical-lr;
 }
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #313234 transparent;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent; /* Establece el fondo del track como transparente */
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #313234;
+  border: 3px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #313234;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #313234;
+}
+
