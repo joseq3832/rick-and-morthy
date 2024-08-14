@@ -31,7 +31,7 @@ export const Home = () => {
           <div>
             <div className="mb-16">
               <H1 className="mb-6">
-                Todo en un <br /> solo <span className="text-rick-primary">Lugar.</span>
+                Todo en developppp mijin <br /> solo <span className="text-rick-primary">Lugar.</span>
               </H1>
               <H4>Personajes, lugares, episodios y mucho más.</H4>
             </div>
