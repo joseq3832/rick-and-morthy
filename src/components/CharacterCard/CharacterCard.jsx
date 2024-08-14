@@ -1,51 +1,65 @@
 import { Link } from 'react-router-dom';
-import { GenderTag } from '@/components';
-import { BsArrowRight } from 'react-icons/bs';
+import { H4, Button } from '@/components';
+import { BsHeart } from 'react-icons/bs';
+import { BiPlanet, BiInfoCircle } from 'react-icons/bi';
+import { PiAlien, PiPulse } from 'react-icons/pi';
+
+import PropTypes from 'prop-types';
 
 export const CharacterCard = ({ character }) => {
   return (
-    <div className="border border-black rounded-none p-4">
-      <div className="flex items-center gap-4">
-        <div className="w-60 h-full">
-          <img
-            className="w-full h-full object-cover object-center rounded-sm"
-            src={character.image}
-            alt={character.name}
-          />
+    <div className="bg-rick-black-100 hover:bg-rick-black transition-all ease-in-out p-4 rounded-lg">
+      <img
+        className="rounded-2xl w-full h-[200px] object-cover object-center"
+        src={character.image}
+        alt={character.name}
+      />
+      <div className="relative text-white mt-4">
+        <H4>{character.name}</H4>
+        <BsHeart className="h-8 w-auto absolute right-0 top-0 text-rick-primary cursor-pointer" />
+        <div className="flex flex-col justify-center items-start gap-2 text-sm mt-4 mb-6">
+          <span className="flex items-center gap-1">
+            <PiPulse className="text-rick-secondary" /> {character.status}
+          </span>
+          <span className="flex items-center gap-1">
+            <PiAlien />
+            {character.species}
+          </span>
+          <span className="flex items-center gap-1">
+            <BiPlanet />
+            {character.origin.name}
+          </span>
         </div>
-        <div className="flex flex-col gap-4 w-full">
-          <div className="flex items-center gap-2">
-            <h6 className="font-bold text-lg">
-              {character.name}
-              <span className="block -mt-1.5 bg-red-500 w-24 h-1 my-auto"></span>
-            </h6>
-            <GenderTag gender={character.gender} />
-          </div>
-          <div className="flex flex-col gap-3 pl-6 relative">
-            <div className="absolute block w-2 h-full left-2 border-l border-black rotate-180 text-vertical text-center">
-              caracteristicas
-            </div>
-            <div className="bg-[#21305F] px-3 py-2 text-white text-sm rounded-sm shadow-sm">
-              {character.species}
-            </div>
-            <div className="bg-[#21305F] px-3 py-2 text-white text-sm rounded-sm shadow-sm">
-              {character.origin.name}
-            </div>
-            <div className="bg-[#21305F] px-3 py-2 text-white text-sm rounded-sm shadow-sm">
-              {character.location.name}
-            </div>
-          </div>
+        <div className="flex justify-end">
+          <Link to={'/character/' + character.slug}>
+            <Button
+              className="flex items-center gap-1.5 hover:bg-rick-primary transition-all ease-in-out"
+              type="secondary">
+              <BiInfoCircle className="h-5 w-auto" />
+              Saber más
+            </Button>
+          </Link>
         </div>
-      </div>
-      <div className="flex items-center justify-between mt-3 w-full">
-        <span>aparece en: {character.episode.length} episodios</span>
-        <Link
-          to={'/character/' + character.id}
-          className="flex items-center justify-center relative group">
-          <BsArrowRight className="h-5 -right-0 w-auto opacity-70 hidden group-hover:block absolute transition-all ease-in-out duration-500" />
-          <span className='group-hover:-translate-x-7 transition-all ease-in-out duration-300 group-hover:drop-shadow-lg group-hover:shadow-black'>Conoce más</span>
-        </Link>
       </div>
     </div>
   );
+};
+
+CharacterCard.propTypes = {
+  character: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    origin: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    location: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    episode: PropTypes.arrayOf(PropTypes.string).isRequired
+  }).isRequired
 };

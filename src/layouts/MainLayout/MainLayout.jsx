@@ -1,13 +1,15 @@
 import { PageContent } from './components/PageContent';
 import { Navigation } from './components/Navigation';
+import { Footer } from './components/Footer';
 
 export const MainLayout = () => {
   return (
     <div>
       <Navigation />
-      <main className="max-w-7xl mx-auto px-6 sm:px-4 md:px-2 py-12">
+      <main className="bg-rick-black-200">
         <PageContent />
       </main>
+      <Footer />
     </div>
   );
 };
